@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NSSF AI Accounting Chat</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="https://js.puter.com/v2/"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="chat-app">
+    <header class="top-bar glass-card">
+      <div>
+        <p class="app-label">NSSF AI</p>
+        <h1>NSSF AI</h1>
+        <p class="app-description">An accounting research assistant focused on CPA, financial reporting, auditing, and accounting history.</p>
+      </div>
+      <div class="header-controls">
+        <label class="model-label" for="model">Model</label>
+        <select id="model" class="control-select" aria-label="Choose AI model">
+          <option value="gpt-5.4-nano">gpt-5.4-nano</option>
+          <option value="gpt-5.4">gpt-5.4</option>
+          <option value="gpt-5.3-nano">gpt-5.3-nano</option>
+          <option value="gpt-4o">gpt-4o</option>
+        </select>
+        <button id="login" class="btn btn-secondary btn-login">Sign in</button>
+        <p id="auth-status" class="auth-status">Not signed in</p>
+      </div>
+    </header>
+
+    <main class="chat-window glass-card">
+      <div class="chat-window-header">
+        <div>
+          <p class="chat-window-label">Accounting research</p>
+          <h2 class="chat-window-title">NSSF Accounting Assistant</h2>
+        </div>
+        <div class="chat-window-badge">Model: <strong id="selected-model">gpt-5.4-nano</strong></div>
+      </div>
+      <div id="messages" class="messages"></div>
+    </main>
+
+    <section class="chat-input-panel glass-card">
+      <div class="prompt-wrapper">
+        <textarea id="prompt" class="prompt-input" rows="4" placeholder="Ask an accounting or CPA question. Attach an image for local preview only."></textarea>
+        <label for="image-upload" class="btn btn-secondary btn-image-upload">Attach image</label>
+        <input id="image-upload" type="file" accept="image/*" hidden />
+        <button id="send" class="btn btn-primary prompt-send-btn">Send</button>
+      </div>
+      <div class="prompt-footer">
+        <span id="image-name" class="image-name">No image selected</span>
+      </div>
+      <div id="image-preview" class="image-preview"></div>
+      <div class="input-top-row">
+        <div class="input-tools">
+          <button id="clear" class="btn btn-secondary">New chat</button>
+          <span class="input-hint">Press Enter to send, Shift+Enter for new line.</span>
+        </div>
+      </div>
+    </section>
+
+    <p class="footer-note">This chat uses <code>puter.ai.chat()</code> from Puter Playground.</p>
+  </div>
+</body>
+</html>

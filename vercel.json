@@ -1,10 +1,9 @@
 {
   "version": 2,
   "builds": [
-    { "src": "puter-chat-ui/**/*", "use": "@now/static" }
-  ],
-  "routes": [
-    { "src": "/", "dest": "/puter-chat-ui/index.html" },
-    { "src": "/(.*)", "dest": "/puter-chat-ui/$1" }
+    {
+      "src": "public/**",
+      "use": "@now/static"
+    }
   ]
 }
