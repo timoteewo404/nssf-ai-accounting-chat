@@ -2,4 +2,5 @@
 !.vercelignore
 !vercel.json
 !README.md
+!puter-chat-ui/
 !puter-chat-ui/**
