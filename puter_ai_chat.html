@@ -1,0 +1,137 @@
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:black,bold,medium,regular,light,thin" rel="stylesheet">
+    <title>Chat with GPT-5 nano | Puter.js Playground</title>
+    <meta name="title" content="Chat with GPT-5 nano | Puter.js Playground" />
+    <meta name="description" content="Chat with GPT-5 nano using Puter.js AI API. Run and experiment with this chatbot example directly in the playground." />
+
+    <link rel="canonical" href="https://docs.puter.com/playground/ai-chatgpt/">
+
+    <meta property="og:title" content="Chat with GPT-5 nano | Puter.js Playground">
+    <meta property="og:description" content="Chat with GPT-5 nano using Puter.js AI API. Run and experiment with this chatbot example directly in the playground." />
+    <meta property="og:type" content="website" />
+    <meta name="og:image" content="https://assets.puter.site/twitter.png">
+    <meta name="og:url" content="https://docs.puter.com/playground/ai-chatgpt/">
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@HeyPuter" />
+    <meta name="twitter:title" content="Chat with GPT-5 nano | Puter.js Playground">
+    <meta name="twitter:description" content="Chat with GPT-5 nano using Puter.js AI API. Run and experiment with this chatbot example directly in the playground." />
+    <meta name="twitter:image" content="https://assets.puter.site/twitter.png">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <script defer data-domain="docs.puter.com" src="https://plausible.io/js/script.js"></script>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            c[a]("identify", (sessionStorage.cid ??= crypto.randomUUID()));
+        })(window, document, "clarity", "script", "ubxybtas0w");
+    </script>
+    <link rel="stylesheet" href="/playground/assets/css/style.css">
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs/loader.min.js"
+        integrity="sha512-ZG31AN9z/CQD1YDDAK4RUAvogwbJHv6bHrumrnMLzdCrVu4HeAqrUX7Jsal/cbUwXGfaMUNmQU04tQ8XXl5Znw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://js.puter.com/v2/"></script>
+
+    <div style="height: 50px; padding: 10px; background-color: #474e5d; display: flex; flex-direction: row;">
+        <h1 class="logo"><a href="/playground/">Puter.js Playground</a></h1>
+        <div style="float:right;" class="navbar">
+            <a href="/" target="_blank" style="margin-right: 35px;">Docs</a>
+            <a style="display: flex; flex-direction: row; align-items: center;"
+                href="https://github.com/heyPuter/puter/" target="_blank"><svg role="img"
+                    style="margin-right:4px; margin-bottom: 3px;" width="17" height="17" viewBox="0 0 24 24" fill="#fff"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <title>GitHub</title>
+                    <path
+                        d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                </svg><span class="github-stars"></span></a></h1>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- Sidebar -->
+        <div id="sidebar-container">
+            <div class="sidebar-header">
+                <button class="sidebar-toggle" id="sidebar-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu-icon lucide-menu"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+                </button>
+                <span class="sidebar-title">Examples</span>
+            </div>
+            <div class="sidebar-search">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="text" id="sidebar-search-input" placeholder="Search examples..." autocomplete="off" />
+            </div>
+            <div class="sidebar">
+                <div class="sidebar-content"><div class="sidebar-category" data-category="introduction"><div class="sidebar-category-title">Introduction</div><a href="/playground/" class="sidebar-item" data-title="hello world">Hello World</a><a href="/playground/intro-gpt-vision/" class="sidebar-item" data-title="image analysis">Image Analysis</a><a href="/playground/intro-fs-write/" class="sidebar-item" data-title="cloud storage">Cloud Storage</a><a href="/playground/intro-kv-set/" class="sidebar-item" data-title="key-value store">Key-Value Store</a><a href="/playground/intro-hosting/" class="sidebar-item" data-title="publish a website">Publish a Website</a><a href="/playground/intro-auth/" class="sidebar-item" data-title="authentication">Authentication</a></div><div class="sidebar-category" data-category="ai"><div class="sidebar-category-title">AI</div><a href="/playground/ai-chatgpt/" class="sidebar-item" data-title="chat with gpt-5 nano">Chat with GPT-5 nano</a><a href="/playground/ai-gpt-vision/" class="sidebar-item" data-title="image analysis">Image Analysis</a><a href="/playground/ai-video-analysis/" class="sidebar-item" data-title="video analysis">Video Analysis</a><a href="/playground/ai-chat-stream/" class="sidebar-item" data-title="stream the response">Stream the response</a><a href="/playground/ai-function-calling/" class="sidebar-item" data-title="function calling">Function Calling</a><a href="/playground/ai-streaming-function-calling/" class="sidebar-item" data-title="streaming function calls">Streaming Function Calls</a><a href="/playground/ai-web-search/" class="sidebar-item" data-title="web search">Web Search</a><a href="/playground/ai-image-chat/" class="sidebar-item" data-title="image generation">Image Generation</a><a href="/playground/ai-image-edit/" class="sidebar-item" data-title="multi-turn image editing">Multi-Turn Image Editing</a><a href="/playground/ai-resume-analyzer/" class="sidebar-item" data-title="ai resume analyzer (file handling)">AI Resume Analyzer (File handling)</a><a href="/playground/ai-chat-openai-o3-mini/" class="sidebar-item" data-title="chat with openai o3-mini">Chat with OpenAI o3-mini</a><a href="/playground/ai-chat-claude/" class="sidebar-item" data-title="chat with claude sonnet">Chat with Claude Sonnet</a><a href="/playground/ai-claude-cache-control/" class="sidebar-item" data-title="prompt caching with claude">Prompt caching with Claude</a><a href="/playground/ai-chat-deepseek/" class="sidebar-item" data-title="chat with deepseek">Chat with DeepSeek</a><a href="/playground/ai-chat-gemini/" class="sidebar-item" data-title="chat with gemini">Chat with Gemini</a><a href="/playground/ai-xai/" class="sidebar-item" data-title="chat with xai (grok)">Chat with xAI (Grok)</a><a href="/playground/ai-img2txt/" class="sidebar-item" data-title="extract text from image">Extract Text from Image</a><a href="/playground/ai-txt2img/" class="sidebar-item" data-title="text to image">Text to Image</a><a href="/playground/ai-txt2img-options/" class="sidebar-item" data-title="text to image with options">Text to Image with options</a><a href="/playground/ai-txt2img-image-to-image/" class="sidebar-item" data-title="text to image with image-to-image generation">Text to Image with image-to-image generation</a><a href="/playground/ai-txt2speech/" class="sidebar-item" data-title="text to speech">Text to Speech</a><a href="/playground/ai-txt2speech-options/" class="sidebar-item" data-title="text to speech with options">Text to Speech with options</a><a href="/playground/ai-txt2speech-engines/" class="sidebar-item" data-title="text to speech with engines">Text to Speech with engines</a><a href="/playground/ai-txt2speech-openai/" class="sidebar-item" data-title="text to speech with openai">Text to Speech with OpenAI</a><a href="/playground/ai-txt2speech-elevenlabs/" class="sidebar-item" data-title="text to speech with elevenlabs">Text to Speech with ElevenLabs</a><a href="/playground/ai-voice-changer/" class="sidebar-item" data-title="voice changer">Voice Changer</a><a href="/playground/ai-speech2speech-url/" class="sidebar-item" data-title="elevenlabs voice changer with a sample clip">ElevenLabs Voice changer with a sample clip</a><a href="/playground/ai-speech2speech-file/" class="sidebar-item" data-title="elevenlabs voice changer with a recording stored as a file">ElevenLabs Voice changer with a recording stored as a file</a><a href="/playground/ai-speech2txt/" class="sidebar-item" data-title="transcribe an audio recording into text">Transcribe an audio recording into text</a><a href="/playground/ai-txt2vid/" class="sidebar-item" data-title="text to video">Text to Video</a><a href="/playground/ai-txt2vid-options/" class="sidebar-item" data-title="text to video with options">Text to Video with options</a><a href="/playground/ai-list-models/" class="sidebar-item" data-title="list ai models">List AI models</a><a href="/playground/ai-list-model-providers/" class="sidebar-item" data-title="list ai model providers">List AI model providers</a></div><div class="sidebar-category" data-category="filesystem"><div class="sidebar-category-title">FileSystem</div><a href="/playground/fs-write/" class="sidebar-item" data-title="write file">Write File</a><a href="/playground/fs-read/" class="sidebar-item" data-title="read file">Read File</a><a href="/playground/fs-mkdir/" class="sidebar-item" data-title="make a directory">Make a Directory</a><a href="/playground/fs-delete/" class="sidebar-item" data-title="delete">Delete</a><a href="/playground/fs-readdir/" class="sidebar-item" data-title="read directory">Read Directory</a><a href="/playground/fs-rename/" class="sidebar-item" data-title="rename">Rename</a><a href="/playground/fs-stat/" class="sidebar-item" data-title="get file/directory info">Get File/Directory Info</a><a href="/playground/fs-copy/" class="sidebar-item" data-title="copy file/directory">Copy File/Directory</a><a href="/playground/fs-move/" class="sidebar-item" data-title="move file/directory">Move File/Directory</a><a href="/playground/fs-upload/" class="sidebar-item" data-title="upload">Upload</a><a href="/playground/fs-write-dedupe/" class="sidebar-item" data-title="write a file with deduplication">Write a file with deduplication</a><a href="/playground/fs-write-from-input/" class="sidebar-item" data-title="create a new file with input coming from a file input">Create a new file with input coming from a file input</a><a href="/playground/fs-write-create-missing-parents/" class="sidebar-item" data-title="create a file in a directory that does not exist">Create a file in a directory that does not exist</a><a href="/playground/fs-mkdir-dedupe/" class="sidebar-item" data-title="create a directory with deduplication">Create a directory with deduplication</a><a href="/playground/fs-mkdir-create-missing-parents/" class="sidebar-item" data-title="create a directory with missing parent directories">Create a directory with missing parent directories</a><a href="/playground/fs-move-create-missing-parents/" class="sidebar-item" data-title="move a file with missing parent directories">Move a file with missing parent directories</a><a href="/playground/fs-delete-directory/" class="sidebar-item" data-title="delete a directory">Delete a directory</a></div><div class="sidebar-category" data-category="key-value store"><div class="sidebar-category-title">Key-Value Store</div><a href="/playground/kv-set/" class="sidebar-item" data-title="set">Set</a><a href="/playground/kv-get/" class="sidebar-item" data-title="get">Get</a><a href="/playground/kv-incr/" class="sidebar-item" data-title="increment">Increment</a><a href="/playground/kv-incr-nested/" class="sidebar-item" data-title="increment (object value)">Increment (Object value)</a><a href="/playground/kv-decr/" class="sidebar-item" data-title="decrement">Decrement</a><a href="/playground/kv-add/" class="sidebar-item" data-title="add">Add</a><a href="/playground/kv-remove/" class="sidebar-item" data-title="remove">Remove</a><a href="/playground/kv-update/" class="sidebar-item" data-title="update">Update</a><a href="/playground/kv-decr-nested/" class="sidebar-item" data-title="decrement (object value)">Decrement (Object value)</a><a href="/playground/kv-del/" class="sidebar-item" data-title="delete">Delete</a><a href="/playground/kv-list/" class="sidebar-item" data-title="list">List</a><a href="/playground/kv-list-pagination/" class="sidebar-item" data-title="list (pagination)">List (Pagination)</a><a href="/playground/kv-list-sort/" class="sidebar-item" data-title="list (sorted)">List (Sorted)</a><a href="/playground/kv-list-padding/" class="sidebar-item" data-title="list (zero-padding)">List (Zero-Padding)</a><a href="/playground/kv-prefix-patterns/" class="sidebar-item" data-title="list (prefix patterns)">List (Prefix Patterns)</a><a href="/playground/kv-flush/" class="sidebar-item" data-title="flush">Flush</a><a href="/playground/kv-expire/" class="sidebar-item" data-title="expire">Expire</a><a href="/playground/kv-expireAt/" class="sidebar-item" data-title="expire at">Expire At</a><a href="/playground/kv-name/" class="sidebar-item" data-title="what's your name?">What's your name?</a></div><div class="sidebar-category" data-category="networking"><div class="sidebar-category-title">Networking</div><a href="/playground/net-basic/" class="sidebar-item" data-title="basic tcp socket">Basic TCP Socket</a><a href="/playground/net-tls/" class="sidebar-item" data-title="tls socket">TLS Socket</a><a href="/playground/net-fetch/" class="sidebar-item" data-title="fetch">Fetch</a></div><div class="sidebar-category" data-category="peer"><div class="sidebar-category-title">Peer</div><a href="/playground/peer-basic/" class="sidebar-item" data-title="peer chat">Peer Chat</a></div><div class="sidebar-category" data-category="hosting"><div class="sidebar-category-title">Hosting</div><a href="/playground/hosting-create/" class="sidebar-item" data-title="create a simple website displaying "hello world!"">Create a simple website displaying "Hello world!"</a><a href="/playground/hosting-list/" class="sidebar-item" data-title="create 3 random websites and then list them">Create 3 random websites and then list them</a><a href="/playground/hosting-delete/" class="sidebar-item" data-title="create a random website then delete it">Create a random website then delete it</a><a href="/playground/hosting-update/" class="sidebar-item" data-title="update a subdomain to point to a new directory">Update a subdomain to point to a new directory</a><a href="/playground/hosting-get/" class="sidebar-item" data-title="retrieve information about a subdomain">Retrieve information about a subdomain</a></div><div class="sidebar-category" data-category="authentication"><div class="sidebar-category-title">Authentication</div><a href="/playground/auth-sign-in/" class="sidebar-item" data-title="sign in">Sign in</a><a href="/playground/auth-sign-out/" class="sidebar-item" data-title="sign out">Sign out</a><a href="/playground/auth-is-signed-in/" class="sidebar-item" data-title="check sign in">Check sign in</a><a href="/playground/auth-get-user/" class="sidebar-item" data-title="get user">Get user</a><a href="/playground/auth-get-monthly-usage/" class="sidebar-item" data-title="get user's monthly usage">Get user's monthly usage</a></div><div class="sidebar-category" data-category="apps"><div class="sidebar-category-title">Apps</div><a href="/playground/app-todo/" class="sidebar-item" data-title="to-do list">To-Do List</a><a href="/playground/app-ai-chat/" class="sidebar-item" data-title="ai chat">AI Chat</a><a href="/playground/app-camera/" class="sidebar-item" data-title="camera photo describer">Camera Photo Describer</a><a href="/playground/app-summarizer/" class="sidebar-item" data-title="text summarizer">Text Summarizer</a><a href="/playground/app-create/" class="sidebar-item" data-title="create an app pointing to example.com">Create an app pointing to example.com</a><a href="/playground/app-list/" class="sidebar-item" data-title="create 3 random apps and then list them">Create 3 random apps and then list them</a><a href="/playground/app-delete/" class="sidebar-item" data-title="create a random app then delete it">Create a random app then delete it</a><a href="/playground/app-update/" class="sidebar-item" data-title="create a random app then change its title">Create a random app then change its title</a><a href="/playground/app-get/" class="sidebar-item" data-title="create a random app then get it">Create a random app then get it</a></div><div class="sidebar-category" data-category="workers"><div class="sidebar-category-title">Workers</div><a href="/playground/workers-create/" class="sidebar-item" data-title="create a worker">Create a worker</a><a href="/playground/workers-list/" class="sidebar-item" data-title="list workers">List workers</a><a href="/playground/workers-get/" class="sidebar-item" data-title="get a worker">Get a worker</a><a href="/playground/workers-management/" class="sidebar-item" data-title="workers management">Workers Management</a><a href="/playground/workers-exec/" class="sidebar-item" data-title="authenticated worker requests">Authenticated Worker Requests</a></div></div><div class="sidebar-no-results">No examples found</div>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: row; width: 100%;">
+            <!-- Code Container -->
+            <div id="code-container">
+                <div style="overflow: hidden; height: 50px; flex-shrink: 0; display: flex; flex-direction: row; align-items: center; background: #fff; border-bottom: 1px solid #CCC;">
+                    <span style="user-select: none; margin:0; float:left; font-size: 20px; padding: 10px; flex-grow:1;">Code</span>
+                </div>
+                <div id="code" style="width: 100%; height: 100%;"></div>
+            </div>
+                
+            <!-- Resizer -->
+            <div class="resizer"></div>
+
+            <!-- Output Container -->
+            <div id="output-container">
+                <div style="overflow: hidden; height: 50px; flex-shrink: 0; display: flex; flex-direction: row; align-items: center; background: #fff; border-bottom: 1px solid #CCC;">
+                    <span style="user-select: none; margin:0; float:left; font-size: 20px; padding: 10px; flex-grow: 1;">Preview</span>
+                    <button id="run"><span></span>Run</button>
+                </div>
+                <div id="output" style="width: 100%; height: 100%;"></div>
+            </div>
+        </div>
+    </div>
+    <iframe id="initial-code" style="display:none;"><html>
+<body>
+    <script src="https://js.puter.com/v2/"></script>
+    <script>
+        // Loading ...
+        puter.print(`Loading...`);
+
+        // Chat with GPT-5.4 nano
+        puter.ai.chat(`What is life?`, {
+            model: 'gpt-5.4-nano',
+        }).then(puter.print);
+    </script>
+</body>
+</html></iframe>
+    <script src="/playground/assets/js/app.js"></script>
+</body>
+
+</html>

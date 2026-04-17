@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "builds": [
+    { "src": "puter-chat-ui/**", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/", "dest": "/puter-chat-ui/index.html" },
+    { "src": "/(.*)", "dest": "/puter-chat-ui/$1" }
+  ]
+}
